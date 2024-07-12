@@ -1,0 +1,142 @@
+/*body {*/
+/*    background-color: #696969;*/
+/*    height: 100vh;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+.root{
+    display: flex;
+    gap: 50px;
+
+}
+
+.divApp {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 50px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 350px;
+    padding: 10px;
+    border: 5px solid #61dafb;
+    border-radius: 10px;
+    background-color: #696969;
+
+}
+.containerCountResult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    width: 330px;
+    background-color: #61dafb;
+    border-radius: 10px;
+    color: black;
+    font-size: 120px;
+}
+.countResultMax {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    width: 330px;
+    background-color: #61dafb;
+    border-radius: 10px;
+    color: red;
+    font-size: 120px;
+
+}
+
+.buttonContainer {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    width: 320px;
+    border: 5px solid #61dafb;
+    border-radius: 10px;
+}
+.button {
+    font-size: 50px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #61dafb;
+    color: black;
+    cursor: pointer;
+}
+.newButton {
+    font-size: 50px;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: #708090;
+    color: black;
+}
+.progress {
+    width: 320px;
+}
+
+.img {
+    height: 320px;
+    width: 370px;
+    border-radius: 10px;
+    position: absolute;
+    top: 320px;
+    right: 0px;
+    transition: 1.5s;
+    opacity: 0;
+
+}
+.imgRes {
+    height: 320px;
+    width: 370px;
+    border-radius: 10px;
+    position: absolute;
+    top: -120px;
+    right: 0px;
+    transition: 1.5s;
+    opacity: 1;
+}
+.containerImg {
+    position: relative;
+}
+
+/*Options counter*/
+.valueContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 130px;
+    width: 320px;
+    border-radius: 10px;
+    border: 5px solid #61dafb;
+    color: black;
+}
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.inputText {
+    color: #61dafb;
+    font-size: 30px;
+    margin-right: 25px;
+    justify-content: center;
+}
+.input {
+    width: 100px;
+    border-radius: 5px;
+    border: 2px solid #61dafb;
+    text-align: center  ;
+
+}
+
