@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import {Button} from "./Button";
-import s from './Counter.module.css';
+import s from './styles/Counter.module.css';
 
 
 

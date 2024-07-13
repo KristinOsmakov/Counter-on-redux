@@ -26,7 +26,7 @@ export type CounterReducerPropsType = {
 const initialState: CounterReducerPropsType = {
     step: 1,
     startValueOption: 0,
-    maxValueOption: 100,
+    maxValueOption: 10,
     count: 0,
 };
 

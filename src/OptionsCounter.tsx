@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import s from "./OptionsCounter.module.css";
+import s from "./styles/OptionsCounter.module.css";
 import {ChangeEvent, useEffect, useState} from "react";
 import {Counter} from "./Counter";
 

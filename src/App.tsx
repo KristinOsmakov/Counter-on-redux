@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Counter} from "./Counter";
-import s from './Counter.module.css'
+import s from './styles/Counter.module.css'
 import {OptionsCounter} from "./OptionsCounter";
 
 

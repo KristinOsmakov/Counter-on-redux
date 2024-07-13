@@ -1,11 +1,13 @@
 // @flow
 import * as React from 'react';
 import {Button} from "./Button";
-import s from './Counter.module.css';
+import s from './styles/Counter.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./reducer/store";
 import {CounterReducerPropsType, onClickInkAC, onClickResetAC} from "./reducer/Counter.reducer";
 import {useCallback} from "react";
+import {Error} from "./Error";
+import {Warning} from "./Warning";
 
 
 
@@ -19,6 +21,15 @@ export const CounterWithRedux = (propsType: CounterPropsType) => {
 
     let counter = useSelector<AppRootStateType, CounterReducerPropsType>(state => state.counter)
     const dispatch = useDispatch()
+
+    const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
+    const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
+    const isDisableError = maxValue < startValue
+    const isDisableSetWarning = maxValue === startValue
+    const isDisableSet = maxValue <= startValue
+
+    const result = isDisableError ? <Error/> : (isDisableSetWarning ? <Warning/> : counter.count)
+    const stylesResult = isDisableError ? s.errorContainer : (isDisableSetWarning ? s.warningContainer : s.container)
 
 
     const min = counter.startValueOption;
@@ -40,16 +51,17 @@ export const CounterWithRedux = (propsType: CounterPropsType) => {
         <div>
             <div className={s.containerImg}>
             </div>
-            <div className={s.container}>
-                <div className={isCounterMax ? s.countResultMax : s.containerCountResult}>{counter.count}</div>
+            <div className={stylesResult}>
+                <div className={isCounterMax ? s.countResultMax : s.containerCountResult}>{result}</div>
                 <div className={s.buttonContainer}>
-                    <Button title={"inc"} onClick={onClickInk} disabled={isCounterMax}
-                            className={isCounterMax ? s.newButton : s.button}/>
-                    <Button title={"reset"} onClick={onClickReset} disabled={isCounterMin}
-                            className={isCounterMin ? s.newButton : s.button}/>
+                    <Button title={"inc"} onClick={onClickInk} disabled={isCounterMax || isDisableSet}
+                            className={isCounterMax || isDisableSet ? s.newButton : s.button}/>
+                    <Button title={"reset"} onClick={onClickReset} disabled={isCounterMin || isDisableSet}
+                            className={isCounterMin || isDisableSet ? s.newButton : s.button}/>
                 </div>
             </div>
         </div>
     );
 };
 
+// counter.count
