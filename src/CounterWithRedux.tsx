@@ -12,18 +12,17 @@ import {Warning} from "./Warning";
 
 
 export type CounterPropsType = {
-
+    maxValue: number,
+    startValue: number,
 };
 
-
-
-export const CounterWithRedux = (propsType: CounterPropsType) => {
+export const CounterWithRedux = ({maxValue, startValue}: CounterPropsType) => {
 
     let counter = useSelector<AppRootStateType, CounterReducerPropsType>(state => state.counter)
     const dispatch = useDispatch()
 
-    const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
-    const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
+    // const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
+    // const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
     const isDisableError = maxValue < startValue
     const isDisableSetWarning = maxValue === startValue
     const isDisableSet = maxValue <= startValue

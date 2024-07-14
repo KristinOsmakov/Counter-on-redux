@@ -11,20 +11,22 @@ import {CounterWithRedux} from "./CounterWithRedux";
 import {Input} from "./Input";
 import {Button} from "./Button";
 
-type Props = {
+type OptionCounterPropsType = {
+    maxValue: number,
+    startValue: number,
 };
 
-export const OptionsCounterWithRedux = (props: Props) => {
+export const OptionsCounterWithRedux = ({maxValue, startValue}: OptionCounterPropsType) => {
 
     let counter = useSelector<AppRootStateType, CounterReducerPropsType>(state => state.counter)
     const dispatch = useDispatch()
 
 
-    const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
-    const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
+    // const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
+    // const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
     const isDisableSet = maxValue <= startValue
     const startNegative = startValue < 0
-    console.log(startNegative)
+
 
 
     const maxValueChange = (e:ChangeEvent<HTMLInputElement>) => {
@@ -37,8 +39,10 @@ export const OptionsCounterWithRedux = (props: Props) => {
     }
 
     const result = () => {
-        dispatch(setValueAC(counter.startValueOption))
+        (maxValue > startValue) && dispatch(setValueAC(counter.startValueOption))
     }
+
+
     return (
         <div className={OCs.root}>
             <div className={startNegative ? s.errorContainer : OCs.container}>

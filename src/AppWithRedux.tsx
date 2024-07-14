@@ -17,11 +17,16 @@ import {OptionsCounterWithRedux} from "./OptionsCounterWithRedux";
 import {CounterWithRedux} from "./CounterWithRedux";
 
 function AppWithRedux() {
+    const maxValue = useSelector((state:AppRootStateType) => state.counter.maxValueOption)
+    const startValue = useSelector((state:AppRootStateType) => state.counter.startValueOption)
+
+    //если не нажат SET - disable INC и RESET
+    //если нажат SET - disable SET
 
     return (
         <div className={s.divApp}>
-            <OptionsCounterWithRedux />
-            <CounterWithRedux />
+            <OptionsCounterWithRedux maxValue={maxValue} startValue={startValue}/>
+            <CounterWithRedux maxValue={maxValue} startValue={startValue}/>
             {/*<Counter step={} startValueOption={} maxValueOption={} setCount={} count={}*/}
         </div>
     );
